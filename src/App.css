@@ -1,0 +1,46 @@
+body {
+  background-color: lightgrey;
+}
+
+.cart-widget::after {
+  content: attr(quantity);
+  background-color: red;
+  position: absolute;
+  color: white;
+  font-family: Arial, serif;
+  border-radius: 10px;
+  font-size: 0.7em;
+  padding: 1.5px 4px 0 4px;
+  line-height: 1em;
+  transform: translate(-10px, 15px);
+}
+
+.card-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-stock-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+.card-image img {
+  height: 20em;
+}
+
+.loading-items {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+}
+
+.loading-items > h5 {
+  margin: 0;
+  padding-left: 0.4em;
+}
