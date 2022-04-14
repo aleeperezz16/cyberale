@@ -1,9 +1,22 @@
 import {Col, Row} from 'react-materialize';
 import ItemCount from './ItemCount';
+import {useContext, useState} from 'react';
+import {CartContext} from './CartContext';
 
 const ItemDetail = ({data}) => {
+  const cart = useContext(CartContext);
+  const [goToCart, setGoToCart] = useState(false);
+
   const onAdd = (count) => {
     alert(`Seleccionaste ${count} items`);
+    setGoToCart(true);
+
+    let index;
+    if ((index = cart.cartList.indexOf(data)) !== -1)
+      // Parar que no se me escape del stock máximo posible, lo limito al stock
+      cart.cartList[index].quantity = Math.min(cart.cartList[index].stock, cart.cartList[index].quantity + count);
+    else
+      cart.addToCart(data, count);
   }
 
   return (
@@ -22,7 +35,7 @@ const ItemDetail = ({data}) => {
               Stock disponible: {data.stock}
               <strong>${data.price}</strong>
             </p>
-            <ItemCount stock={data.stock} initial={1} onAdd={onAdd}/>
+            <ItemCount stock={data.stock} initial={0} onAdd={onAdd} goToCart={goToCart} />
           </div>
         </Col>
       </Row>

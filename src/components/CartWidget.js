@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const CartWidget = ({count}) => {
   return (
-    <Link to='/'>
+    <Link to='/cart'>
       <Icon className='cart-widget' quantity={count}>shopping_cart</Icon>
     </Link>
   )

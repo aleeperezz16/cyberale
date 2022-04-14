@@ -31,7 +31,7 @@ body {
   height: 20em;
 }
 
-.loading-items {
+.center-screen {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 
-.loading-items > h5 {
+.center-screen > h5 {
   margin: 0;
   padding-left: 0.4em;
 }
