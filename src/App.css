@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 
-.center-screen > h5 {
+.center-screen>h5 {
   margin: 0;
   padding-left: 0.4em;
 }

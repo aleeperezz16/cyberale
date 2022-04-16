@@ -1,9 +1,9 @@
-import {Col, Row} from 'react-materialize';
+import { Col, Row } from 'react-materialize';
 import ItemCount from './ItemCount';
-import {useContext, useState} from 'react';
-import {CartContext} from './CartContext';
+import { useContext, useState } from 'react';
+import { CartContext } from './CartContext';
 
-const ItemDetail = ({data}) => {
+const ItemDetail = ({ data }) => {
   const cart = useContext(CartContext);
   const [goToCart, setGoToCart] = useState(false);
 
@@ -23,13 +23,13 @@ const ItemDetail = ({data}) => {
     <>
       <Row>
         <Col s={5}>
-          <img className='responsive-img' src={data.image} alt={data.title}/>
+          <img className='responsive-img' src={data.image} alt={data.title} />
         </Col>
         <Col s={4} push='s2'>
           <div className='section'>
             <h4>{data.title}</h4>
           </div>
-          <div className='divider teal lighten-2'/>
+          <div className='divider teal lighten-2' />
           <div className='section flow-text'>
             <p className='detail-stock-info'>
               Stock disponible: {data.stock}
@@ -40,7 +40,7 @@ const ItemDetail = ({data}) => {
         </Col>
       </Row>
       <Row>
-        <div className='divider teal lighten-2'/>
+        <div className='divider teal lighten-2' />
         <div className='section'>
           <h5>Descripción del producto</h5>
           <p>{data.description}</p>

@@ -1,7 +1,7 @@
 import Item from './Item';
-import {Row} from 'react-materialize';
+import { Row } from 'react-materialize';
 
-const ItemList = ({items}) => {
+const ItemList = ({ items }) => {
   return (
     <>
       <Row>

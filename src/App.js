@@ -1,7 +1,7 @@
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import NavBar from './components/NavBar';

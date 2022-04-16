@@ -1,4 +1,4 @@
-import {Preloader} from 'react-materialize';
+import { Preloader } from 'react-materialize';
 
 const ItemListLoading = () => {
   return (

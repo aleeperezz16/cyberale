@@ -1,5 +1,5 @@
-import {Navbar} from 'react-materialize';
-import {Link} from 'react-router-dom';
+import { Navbar } from 'react-materialize';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
 const NavBar = () => {

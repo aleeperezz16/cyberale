@@ -1,14 +1,14 @@
-import {Container} from 'react-materialize';
-import {useEffect, useState} from 'react';
+import { Container } from 'react-materialize';
+import { useEffect, useState } from 'react';
 import customFetch from '../utils/customFetch';
 import products from '../utils/products';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import ItemListLoading from './ItemListLoading';
 
 const ItemListContainer = () => {
   const [data, setData] = useState([]);
-  const {categoryName} = useParams();
+  const { categoryName } = useParams();
 
   useEffect(() => {
     setData([]);
