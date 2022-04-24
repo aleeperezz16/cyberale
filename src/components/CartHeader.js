@@ -1,17 +1,38 @@
-import { Button } from 'react-materialize';
-import { useContext } from 'react';
-import { CartContext } from './CartContext';
+import { Button, Stack } from "react-bootstrap";
+import { RiErrorWarningFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
-const CartHeader = () => {
-  const cartItems = useContext(CartContext);
-
+const CartHeader = ({ empty, items }) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBlock: '2em' }}>
-      <h3 style={{ marginBlock: 0 }}>Tu carrito</h3>
-      <Button className='waves-light waves-effect' onClick={() => cartItems.removeFromCart()}>Vaciar carrito</Button>
-    </div>
-  )
-}
-
+    <>
+      {empty ? (
+        <Stack className="center align-items-center" gap={3}>
+          <Stack direction="horizontal" gap={2}>
+            <RiErrorWarningFill size={50} />
+            <span className="fs-1">Tu carrito se encuentra vacío</span>
+          </Stack>
+          <Button as={Link} to="/" variant="secondary">
+            Ir de compras
+          </Button>
+        </Stack>
+      ) : (
+        <>
+          <h1 className="text-center mt-3">Tu carrito</h1>
+          <Stack direction="horizontal" className="justify-content-between">
+            <Button as={Link} to="/" variant="success">
+              Seguir comprando
+            </Button>
+            <Button
+              onClick={() => items.removeFromCart()}
+              variant="warning"
+            >
+              Vaciar carrito
+            </Button>
+          </Stack>
+        </>
+      )}
+    </>
+  );
+};
 
 export default CartHeader;

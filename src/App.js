@@ -1,23 +1,27 @@
-import 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import NavBar from './components/NavBar';
-import Cart from './components/Cart';
-import CartContextProvider from './components/CartContext';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.scss";
+import Cart from "./components/Cart";
+import CartContextProvider from "./components/CartContext";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar";
 
-const App = () => {
+function App() {
   return (
     <CartContextProvider>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/category/:categoryName' element={<ItemListContainer />} />
-          <Route path='/details/:productId' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path="/" element={<ItemListContainer />} />
+          <Route
+            path="/categoria/:categoryName"
+            element={<ItemListContainer />}
+          />
+          <Route
+            path="/detalles/:productId"
+            element={<ItemDetailContainer />}
+          />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </CartContextProvider>
