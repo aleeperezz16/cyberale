@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
@@ -12,7 +12,14 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const firestore = async () => {
-      const querySnapshot = await getDocs(collection(db, "products"));
+      const querySnapshot = await getDocs(
+        categoryName === undefined
+          ? query(collection(db, "products"))
+          : query(
+              collection(db, "products"),
+              where("category", "==", categoryName)
+            )
+      );
       return querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -20,13 +27,7 @@ const ItemListContainer = () => {
     };
 
     firestore()
-      .then((result) =>
-        setData(
-          categoryName === undefined
-            ? result
-            : result.filter((item) => item.category === categoryName)
-        )
-      )
+      .then((result) => setData(result))
       .catch((error) => console.log(error));
   }, [categoryName]);
 
