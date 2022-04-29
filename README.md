@@ -2,6 +2,8 @@
 
 Proyecto final de E-commerce para el curso de ReactJS en Coder House.
 
+![](https://i.imgur.com/nuhJwEx.gif)
+
 ## Comenzando 🚀
 
 _Para utilizar este proyecto solamente se necesita realizar un fork del mismo, clonarlo y correrlo por consola._
