@@ -1,16 +1,40 @@
-import { Navbar } from 'react-materialize';
-import { Link } from 'react-router-dom';
-import CartWidget from './CartWidget';
+import { useContext } from "react";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
+  const cartItems = useContext(CartContext);
+
   return (
-    <Navbar className='teal darken-1' alignLinks='right' brand={<Link to='/' className='brand-logo'>Cyberale</Link>} centerChildren>
-      <Link to='/category/perifericos'>Periféricos</Link>
-      <Link to='/category/componentes-pc'>Componentes de PC</Link>
-      <Link to='/category/monitores'>Monitores</Link>
-      <CartWidget count={4} />
+    <Navbar bg="primary" variant="dark" className="position-relative">
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          <h2>Cyberale</h2>
+        </Navbar.Brand>
+        <Nav className="center">
+          <Nav.Item>
+            <Button as={Link} to="/categoria/perifericos">
+              Periféricos
+            </Button>
+          </Nav.Item>
+          <Nav.Item>
+            <Button as={Link} to="/categoria/componentes-pc">
+              Componentes de PC
+            </Button>
+          </Nav.Item>
+          <Nav.Item>
+            <Button as={Link} to="/categoria/monitores">
+              Monitores
+            </Button>
+          </Nav.Item>
+        </Nav>
+
+        <CartWidget count={cartItems.getTotalItems()} />
+      </Container>
     </Navbar>
-  )
-}
+  );
+};
 
 export default NavBar;

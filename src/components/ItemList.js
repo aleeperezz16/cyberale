@@ -1,16 +1,13 @@
-import Item from './Item';
-import { Row } from 'react-materialize';
+import Item from "./Item";
 
 const ItemList = ({ items }) => {
   return (
     <>
-      <Row>
-        {
-          items.map(item => <Item key={item.id} data={item} />)
-        }
-      </Row>
+      {items.map((item) => (
+        <Item key={item.id} data={item} />
+      ))}
     </>
-  )
-}
+  );
+};
 
 export default ItemList;

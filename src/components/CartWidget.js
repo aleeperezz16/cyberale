@@ -1,12 +1,22 @@
-import { Icon } from 'react-materialize';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { Badge } from "react-bootstrap";
 
 const CartWidget = ({ count }) => {
   return (
-    <Link to='/cart'>
-      <Icon className='cart-widget' quantity={count}>shopping_cart</Icon>
+    <Link to="/cart">
+      <FaShoppingCart size={25} color="white" />
+      <Badge
+        pill
+        bg="danger"
+        className={`position-relative translate-middle ${
+          count > 0 ? "d-inline-block" : "d-none"
+        }`}
+      >
+        {count}
+      </Badge>
     </Link>
-  )
-}
+  );
+};
 
 export default CartWidget;
